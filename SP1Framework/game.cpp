@@ -130,7 +130,7 @@ void render( void )
 	{
 		gotoXY(3*i,i+1);
 		colour(colors[i]);
-		std::cout << "WOW";
+		std::cout << "ZEN";
 	}
 
     // render time taken to calculate this frame
