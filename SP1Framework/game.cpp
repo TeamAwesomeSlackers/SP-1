@@ -85,8 +85,10 @@ void update(double dt)
 	// providing a beep sound whenver we shift the character
 	if (g_abKeyPressed[K_UP] && g_abKeyPressed[K_SPACE] && g_cCharLocation.Y > 0)
 	{
-		Beep(1440, 30);
-		g_cCharLocation.Y -= 2;
+        if (g_cCharLocation.Y - 2 != '#'){
+            Beep(1440, 30);
+            g_cCharLocation.Y -= 2;
+        }
 	}
     
 	if (g_abKeyPressed[K_LEFT] && g_abKeyPressed[K_SPACE] && g_cCharLocation.X > 0)
