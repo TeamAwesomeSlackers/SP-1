@@ -11,6 +11,7 @@ double	g_dDeltaTime;
 bool	g_abKeyPressed[K_COUNT];
 COORD	g_cCharLocation;
 COORD	g_cConsoleSize;
+COORD	g_cChaserLoc;
 
 //--------------------------------------------------------------
 // Purpose	: Initialisation function
@@ -107,6 +108,18 @@ void update(double dt)
         Beep(1440, 30);
         g_cCharLocation.X += 1; 
     }
+	if (g_cCharLocation.Y < g_cChaserLoc.Y){
+		g_cChaserLoc.Y -= 1;
+	} // up
+	if (g_cCharLocation.X < g_cChaserLoc.X){
+		g_cChaserLoc.X -= 1;
+	} // left
+	if (g_cCharLocation.X > g_cChaserLoc.X){
+		g_cChaserLoc.X += 1;
+	} // right
+	if (g_cCharLocation.Y > g_cChaserLoc.Y){
+		g_cChaserLoc.Y += 1;
+	} // down
 
     // quits the game if player hits the escape key
     if (g_abKeyPressed[K_ESCAPE])
@@ -192,4 +205,7 @@ void render( void )
     gotoXY(g_cCharLocation);
     colour(0x0C);
     std::cout << (char)1;
+	gotoXY(g_cChaserLoc);
+	colour(0x0C);
+	std::cout << (char)5;
 }
