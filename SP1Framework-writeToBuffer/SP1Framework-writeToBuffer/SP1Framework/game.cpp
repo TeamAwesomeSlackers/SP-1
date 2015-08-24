@@ -37,7 +37,6 @@ void shutdown()
 {
     // Reset to white text on black background
 	colour(FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);
-
     console.clearBuffer();
 }
 /*
